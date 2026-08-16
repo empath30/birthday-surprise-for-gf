@@ -8,7 +8,7 @@
    01. SETTINGS
 ========================================================= */
 
-const SECRET_PASSWORD = "261221";
+const SECRET_PASSWORD = "262430";
 
 /*
 Date and time of the birthday countdown.
