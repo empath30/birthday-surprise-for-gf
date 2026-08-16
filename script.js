@@ -8,13 +8,13 @@
    01. SETTINGS
 ========================================================= */
 
-const SECRET_PASSWORD = "26";
+const SECRET_PASSWORD = "261221";
 
 /*
 Date and time of the birthday countdown.
 Format: "Month Day, Year HH:MM:SS"
 */
-const targetDate = new Date("August 16,2026 16:25:00").getTime();
+const targetDate = new Date("August 24,2026 00:00:00").getTime();
 
 
 /* =========================================================
