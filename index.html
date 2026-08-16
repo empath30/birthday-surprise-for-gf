@@ -1,0 +1,814 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Something for My Girl 💕</title>
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+
+</head>
+
+
+<body>
+
+
+    <!-- =====================================================
+         01. SECRET ENTRY SCREEN
+         Code Name: Password / Unlock Screen
+
+         Is section mein password enter hoga.
+         Correct password ke baad COUNTDOWN SCREEN open hoga.
+    ====================================================== -->
+
+    <section id="secretScreen">
+
+        <div class="secret-card">
+
+            <div class="secret-icon">
+                🔐
+            </div>
+
+            <h1>
+                This little surprise is only for you...
+            </h1>
+
+            <p>
+                Enter the secret password ❤️
+            </p>
+
+            <input
+                type="password"
+                id="passwordInput"
+                placeholder="Enter password..."
+                autocomplete="off"
+            >
+
+            <button
+                id="unlockButton"
+                type="button"
+            >
+                Enter ❤️
+            </button>
+
+            <p id="passwordMessage"></p>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         02. COUNTDOWN + FIREWORKS SCREEN
+         Code Name: Countdown / Fireworks
+
+         Password unlock hone ke baad ye screen chalegi.
+         Countdown complete hone par fireworks chalenge.
+         Fireworks ke baad CAKE SCREEN open hoga.
+    ====================================================== -->
+
+    <section
+        id="countdownScreen"
+        class="hidden"
+    >
+
+        <!-- Fireworks animation yahan render hogi -->
+        <canvas id="fireworksCanvas"></canvas>
+
+        <!-- Background glowing effect -->
+        <div class="glow"></div>
+
+        <!-- Floating hearts animation -->
+        <div id="floatingHearts"></div>
+
+
+        <!-- Countdown numbers -->
+        <div class="countdown-content">
+
+            <p class="small-title">
+                The wait is almost over, My Love...
+            </p>
+
+            <h1>
+                ❤️
+            </h1>
+
+            <div class="countdown">
+
+                <div class="time-box">
+                    <span id="days">00</span>
+                    <small>DAYS</small>
+                </div>
+
+                <div class="time-box">
+                    <span id="hours">00</span>
+                    <small>HOURS</small>
+                </div>
+
+                <div class="time-box">
+                    <span id="minutes">00</span>
+                    <small>MINUTES</small>
+                </div>
+
+                <div class="time-box">
+                    <span id="seconds">00</span>
+                    <small>SECONDS</small>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         03. BIRTHDAY CAKE SCREEN
+         Code Name: Cake / Candle Blow
+
+         Fireworks complete hone ke baad cake dikhega.
+         User candles blow karega.
+         Candle blow hone ke baad LOVE LETTER SCREEN open hoga.
+    ====================================================== -->
+
+    <section
+        id="cakeScreen"
+        class="hidden"
+    >
+
+        <!-- Cake ke peeche glowing light -->
+        <div class="cake-overlay"></div>
+
+        <div class="cake-content">
+
+            <p class="cake-subtitle">
+                A little something for you...
+            </p>
+
+
+            <!-- Birthday Cake -->
+            <div class="cake">
+
+                <!-- Bottom cake layer -->
+                <div
+                    class="cake-layer cake-bottom-layer"
+                ></div>
+
+                <!-- Middle cake layer -->
+                <div
+                    class="cake-layer cake-middle-layer"
+                ></div>
+
+                <!-- Top cake layer -->
+                <div
+                    class="cake-layer cake-top-layer"
+                ></div>
+
+
+                <!-- Candle 1 -->
+                <div class="candle candle-one">
+                    <div class="flame"></div>
+                </div>
+
+                <!-- Candle 2 -->
+                <div class="candle candle-two">
+                    <div class="flame"></div>
+                </div>
+
+                <!-- Candle 3 -->
+                <div class="candle candle-three">
+                    <div class="flame"></div>
+                </div>
+
+
+                <!-- Cake plate -->
+                <div class="cake-plate"></div>
+
+            </div>
+
+
+            <!-- Birthday message -->
+            <h1 class="birthday-title">
+                Happy Birthday My Love Adiiii ❤️
+            </h1>
+
+
+            <!-- Candle instruction -->
+            <p class="blow-text">
+                Make a wish... then blow the candles 🕯️
+            </p>
+
+
+            <!-- Candle blow button -->
+            <button
+                id="blowButton"
+                type="button"
+            >
+                Tap to Blow 💨
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         04. LOVE LETTER SCREEN
+         Code Name: Envelope / Love Letter
+
+         Cake ke baad ye section open hoga.
+         Pehle envelope dikhega.
+         Envelope click karne par love letter open hoga.
+         Letter complete hone ke baad CONTINUE button aayega.
+    ====================================================== -->
+
+    <section
+        id="letterScene"
+        class="letter-scene hidden"
+    >
+
+
+        <!-- =================================================
+             04A. ENVELOPE
+             Code Name: Love Letter Envelope
+
+             Envelope click karne par letter open hoga.
+        ================================================== -->
+
+        <div
+            class="envelope-wrapper"
+            id="envelopeWrapper"
+        >
+
+            <div class="envelope">
+
+                <!-- Paper inside envelope -->
+                <div class="envelope-paper">
+
+                    <span>
+                        For you, My Love ❤️
+                    </span>
+
+                </div>
+
+                <!-- Envelope front -->
+                <div class="envelope-front"></div>
+
+                <!-- Envelope opening flap -->
+                <div class="envelope-flap"></div>
+
+                <!-- Heart seal -->
+                <div class="envelope-seal">
+                    ❤️
+                </div>
+
+            </div>
+
+
+            <!-- Envelope instruction -->
+            <p class="envelope-hint">
+                Open this little letter... 💌
+            </p>
+
+        </div>
+
+
+        <!-- =================================================
+             04B. LOVE LETTER CONTENT
+             Code Name: Actual Love Letter
+
+             Yahan letter ka text typing animation se aayega.
+             Letter complete hone ke baad Continue button
+             appear hoga.
+        ================================================== -->
+
+        <div
+            class="love-letter hidden"
+            id="loveLetter"
+        >
+
+            <div class="letter-paper">
+
+                <!-- Letter decoration -->
+                <div class="letter-decoration">
+                    ✿
+                </div>
+
+
+                <!-- Letter heading -->
+                <h2>
+                    My Love,
+                </h2>
+
+
+                <!-- Letter typing text -->
+                <div
+                    class="letter-text"
+                    id="letterText"
+                ></div>
+
+
+                <!-- Letter ending -->
+                <div
+                    class="letter-ending"
+                    id="letterEnding"
+                >
+                    ❤️
+                </div>
+
+
+                <!-- Continue to next surprise -->
+                <div
+                    class="continue-letter hidden"
+                    id="continueLetter"
+                >
+
+                    <p>
+                        And... I'm not done yet. ❤️
+                    </p>
+
+                    <button
+                        id="continueButton"
+                        type="button"
+                    >
+                        Continue ❤️
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         05. GAME INTRO / SURPRISE TRANSITION SCREEN
+         Code Name: Not Done Yet / Game Introduction
+
+         IMPORTANT:
+         Ye screen CAKE ke baad nahi aayegi.
+         Ye LOVE LETTER complete hone ke baad aayegi.
+
+         Is screen ka purpose:
+         User ko batana ki surprise abhi khatam nahi hua.
+         Iske baad "Let's Play ❤️" button se FUN TIME GAME
+         open hoga.
+    ====================================================== -->
+
+    <section
+        id="wishTransition"
+        class="wish-transition hidden"
+    >
+
+        <!-- Background glow -->
+        <div class="wish-transition-glow"></div>
+
+
+        <div class="wish-transition-content">
+
+            <!-- Decorative sparkle -->
+            <div class="wish-sparkle">
+                ✨
+            </div>
+
+
+            <!-- Small heading -->
+            <p class="wish-small-text">
+                Wait...
+            </p>
+
+
+            <!-- Main heading -->
+            <h2>
+                I'm not done yet. ❤️
+            </h2>
+
+
+            <!-- Question -->
+            <p class="wish-question">
+                You really thought that was all? 👀
+            </p>
+
+
+            <!-- Highlight -->
+            <p class="wish-highlight">
+                Not even close. ❤️
+            </p>
+
+
+            <!-- Game introduction -->
+            <p class="wish-message">
+                I’ve got a little something else planned for you...
+                something fun, cute, and just a little dangerous. 😏
+            </p>
+
+
+            <!-- Ready message -->
+            <p class="wish-ready">
+                Ready for some fun?
+            </p>
+
+
+            <!-- Open Game -->
+            <button
+                id="startGameButton"
+                type="button"
+            >
+                Let's Play ❤️
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         06. FUN TIME GAME
+         Code Name: Fun Time
+
+         IMPORTANT GAME RULES:
+
+         1. Total 18 questions.
+         2. Ek time par sirf EK question screen par hoga.
+         3. Har question ke sirf TWO answers honge.
+         4. Questions English mein honge.
+         5. Questions fun, chill, romantic, teasing aur
+            slightly adult vibe ke honge.
+         6. Soft & cute FULL-BODY BOY CHARACTER poore game
+            ke time screen par visible rahega.
+         7. Answer select karne par boy character question
+            ke context ke according reaction dega.
+         8. Submit karne par current reaction finish hoga.
+         9. Uske baad next question load hoga.
+         10. Har answer ke according Kiss Credits milenge.
+         11. Question 18 complete hone ke baad final
+             KISS VOUCHER unlock hoga.
+
+         IMPORTANT:
+         Actual questions aur reactions SCRIPT.JS mein
+         control honge.
+    ====================================================== -->
+
+    <section
+        id="gameScreen"
+        class="game-screen hidden"
+    >
+
+        <!-- Game background glow -->
+        <div class="game-glow"></div>
+
+
+        <!-- =================================================
+             06A. GAME HEADER
+        ================================================== -->
+
+        <div class="game-header">
+
+            <!-- Game name -->
+            <p class="game-label">
+                Something crazy for you!!
+            </p>
+
+
+            <!-- Main game title -->
+            <h1>
+                Fun Time 😍❤️
+            </h1>
+
+
+            <!-- Game subtitle -->
+            <p class="game-subtitle">
+                A little game made just for you... 👀
+            </p>
+
+
+            <!-- Question progress -->
+            <p class="game-progress">
+
+                Question
+
+                <span id="gameQuestionNumber">
+                    1
+                </span>
+
+                of
+
+                <span id="gameTotalQuestions">
+                    18
+                </span>
+
+            </p>
+
+        </div>
+
+
+        <!-- =================================================
+             06B. MAIN GAME AREA
+        ================================================== -->
+
+        <div class="game-main">
+
+
+            <!-- =============================================
+                 SOFT & CUTE BOY CHARACTER
+
+                 Character poore game ke time visible rahega.
+                 Actual character artwork/animation CSS ya
+                 image asset se later style ki jayegi.
+            ============================================== -->
+
+            <div
+                class="boy-character-area"
+                id="boyCharacterArea"
+            >
+
+                <div
+                    class="boy-character"
+                    id="boyCharacter"
+                >
+
+                    <!--
+                         Temporary character placeholder.
+
+                         Later yahan proper soft & cute
+                         full-body boy character add hoga.
+                    -->
+
+                    <div class="boy-placeholder" aria-label="Cute boy character">
+                        <div class="cute-boy" id="cuteBoy">
+                            <div class="boy-hair"></div>
+                            <div class="boy-head">
+                                <span class="boy-eye boy-eye-left"></span>
+                                <span class="boy-eye boy-eye-right"></span>
+                                <span class="boy-blush boy-blush-left"></span>
+                                <span class="boy-blush boy-blush-right"></span>
+                                <span class="boy-mouth"></span>
+                            </div>
+                            <div class="boy-neck"></div>
+                            <div class="boy-body"></div>
+                            <div class="boy-arm boy-arm-left"></div>
+                            <div class="boy-arm boy-arm-right"></div>
+                            <div class="boy-leg boy-leg-left"></div>
+                            <div class="boy-leg boy-leg-right"></div>
+                            <div class="boy-shoe boy-shoe-left"></div>
+                            <div class="boy-shoe boy-shoe-right"></div>
+                        </div>
+                    </div>
+
+                </div>
+
+
+                <!-- =========================================
+                     BOY REACTION
+
+                     Answer choose karne ke baad yahan
+                     context-based reaction text show hoga.
+                ========================================== -->
+
+                <div
+                    class="boy-reaction"
+                    id="boyReaction"
+                >
+                    I'm waiting... 👀
+                </div>
+
+            </div>
+
+
+            <!-- =============================================
+                 QUESTION AREA
+            ============================================== -->
+
+            <div
+                class="question-area"
+                id="questionArea"
+            >
+
+                <div class="question-card">
+
+
+                    <!-- Question number -->
+                    <p
+                        class="question-number"
+                        id="questionNumber"
+                    >
+                        QUESTION 1
+                    </p>
+
+
+                    <!-- Question text -->
+                    <h2
+                        class="question-text"
+                        id="questionText"
+                    >
+                        Who fell harder? 👀
+                    </h2>
+
+
+                    <!-- =====================================
+                         TWO ANSWERS ONLY
+
+                         Important:
+                         Game mein sirf do choices hongi.
+                    ====================================== -->
+
+                    <div
+                        class="answer-options"
+                        id="answerOptions"
+                    >
+
+                        <!-- Answer A -->
+                        <button
+                            class="answer-button"
+                            type="button"
+                            data-answer="0"
+                        >
+                            Me 😌
+                        </button>
+
+
+                        <!-- Answer B -->
+                        <button
+                            class="answer-button"
+                            type="button"
+                            data-answer="1"
+                        >
+                            You ❤️
+                        </button>
+
+                    </div>
+
+
+                    <!-- Selected answer feedback -->
+                    <p
+                        class="selection-message"
+                        id="selectionMessage"
+                    ></p>
+
+
+                    <!-- Submit selected answer -->
+                    <button
+                        id="submitAnswerButton"
+                        class="submit-answer-button"
+                        type="button"
+                        disabled
+                    >
+                        Submit ❤️
+                    </button>
+
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             06C. KISS CREDIT SYSTEM
+
+             Har question ke selected answer ke according
+             Kiss Credits increase honge.
+        ================================================== -->
+
+        <div class="game-score">
+
+            <span>
+                💋 Kiss Credits
+            </span>
+
+
+            <strong id="kissCredits">
+                0
+            </strong>
+
+        </div>
+
+
+        <!-- =================================================
+             06D. FINAL KISS VOUCHER
+
+             18th question complete hone ke baad ye card
+             unlock hoga.
+
+             Initially hidden hai.
+        ================================================== -->
+
+        <div
+            class="kiss-voucher hidden"
+            id="kissVoucher"
+        >
+
+            <div class="voucher-inner">
+
+
+                <!-- Voucher top decoration -->
+                <p class="voucher-small">
+                    ✨ CONGRATULATIONS ✨
+                </p>
+
+
+                <!-- Voucher title -->
+                <h2>
+                    KISS VOUCHER 💋
+                </h2>
+
+
+                <!-- Voucher message -->
+                <p>
+                    You've unlocked
+                </p>
+
+
+                <!-- Final Kiss Credits -->
+                <div
+                    class="voucher-amount"
+                    id="voucherAmount"
+                >
+                    0 Kiss Credits
+                </div>
+
+
+                <!-- Voucher description -->
+                <p>
+                    Redeemable whenever you want. ❤️
+                </p>
+
+
+                <!-- Voucher details -->
+                <div class="voucher-details">
+
+                    <span>
+                        VALID: FOREVER ♾️
+                    </span>
+
+                    <span>
+                        STATUS: UNLOCKED ✓
+                    </span>
+
+                </div>
+
+
+                <!-- Voucher decorative line -->
+                <div class="voucher-divider">
+                    💕 ───────── 💕
+                </div>
+
+
+                <!-- Voucher footer -->
+                <p class="voucher-footer">
+                    Issued with love. No expiry. ❤️<br>
+                                 &<br>
+                    Take a Screenshot to Claim 📸
+                </p>
+
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         07. JAVASCRIPT
+         Code Name: Main Script
+
+         IMPORTANT:
+         Sirf EK script file load karni hai.
+
+         script.js mein:
+         - Password
+         - Countdown
+         - Fireworks
+         - Cake
+         - Candle blow
+         - Love letter
+         - Game transition
+         - 18 questions
+         - Two answers
+         - Boy reactions
+         - Kiss Credits
+         - Final Kiss Voucher
+
+         ka complete logic hoga.
+    ====================================================== -->
+
+    <script src="script.js"></script>
+
+
+</body>
+
+</html>
